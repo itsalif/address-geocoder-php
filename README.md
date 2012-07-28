@@ -3,7 +3,7 @@ Address to Lat & Lon conversion script in PHP using Google Geocoder
 
   Address to Lat & Lon conversion script in PHP using Google Geocoder. 
   It does not require any Google Maps API Key. Please also check Google Maps Terms & FAQ.
-  Read more here: <http://www.itsalif.info/address-lat-lon-without-api-google-maps-geocoder-php
+  Read more here: <http://www.itsalif.info/content/address-lat-lon-without-api-google-maps-geocoder-php>
 
 
 How to Use

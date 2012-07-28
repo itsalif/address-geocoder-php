@@ -1,5 +1,4 @@
 <?php
-
 /* A simple function/script for geocoding Address using Google Maps API.
  * Please check Google Maps API FAQ & Terms for more info.
  *
@@ -15,11 +14,11 @@
  *			    'address' => The Address to be parsed
  *			    'sensor' => 'true' or 'false' as [string]
  *
- * @return 		An array containing
- *				'status'  => Boolean which is true on success, false on failure
- *				'message' => 'Success' on success, otherwise an error message
- *			    'lat'	  => The Lat of the address
- *				'lon'	  => The Lng of the address
+ * @return 	An array containing
+ *			'status'  => Boolean which is true on success, false on failure
+ *			'message' => 'Success' on success, otherwise an error message
+ *			'lat'	  => The Lat of the address
+ *			'lon'	  => The Lng of the address
  *
  */
 function getLatLng($opts) {
@@ -64,20 +63,4 @@ function getLatLng($opts) {
 		'message' => "Oh snap! Error in Geocoding. Please check Address"
 	);
 	return $response;
-}
-
-
-// define the address and set sensor to false
-$opt = array (
-	'address' => urlencode('Yonge and Bloor, Toronto'),
-	'sensor'  => 'false'
-);
-
-// now simply call the function
-$result = getLatLng($opt);
-
-// if status was successful, then print the lat/lon ?
-if ($result['status']) {
-  
-   print_r($result);
 }
