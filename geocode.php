@@ -11,14 +11,15 @@
  * require any Google API Key
  *
  * @param $opt 	An array containing
- *			    'address' => The Address to be parsed
- *			    'sensor' => 'true' or 'false' as [string]
+ *            'address' => The Address to be parsed
+ *            'sensor' => 'true' or 'false' as [string]
  *
  * @return 	An array containing
- *			'status'  => Boolean which is true on success, false on failure
- *			'message' => 'Success' on success, otherwise an error message
- *			'lat'	  => The Lat of the address
- *			'lon'	  => The Lng of the address
+ *          'status'  => Boolean which is true on success, false on failure
+ *          'message' => 'Success' on success, otherwise an error message
+ *          'lat'     => The Lat of the address
+ *          'lon'     => The Lng of the address
+ *          'address' => The Address typed by user.
  *
  */
 function getLatLng($opts) {
@@ -42,6 +43,7 @@ function getLatLng($opts) {
 	
 		$latDom = $xpath->query("//location/lat");
 		$lonDom = $xpath->query("//location/lng");
+		$addressDom = $xpath->query("//formatted_address");
 		
 		/* if there's a lat, then there must be lng :) */
 		if ($latDom->length > 0) {
@@ -50,7 +52,8 @@ function getLatLng($opts) {
 				'status' 	=> true,
 				'message' 	=> 'Success',
 				'lat' 		=> $latDom->item(0)->nodeValue,
-				'lon' 		=> $lonDom->item(0)->nodeValue
+				'lon' 		=> $lonDom->item(0)->nodeValue,
+				'address'	=> $addressDom->item(0)->nodeValue
 			);
 
 			return $response;
